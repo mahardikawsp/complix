@@ -60,7 +60,7 @@ export default function SubscriptionCard ({id, name, price, durationInMonth, fea
             {/* <!-- Bottom: CTA Button --> */}
             <div onClick={onSelectSubscription}>
                 <Button type="button">
-                    <span className="text-base font-semibold">Start {name}</span>
+                    <span className="text-base font-semibold">Subscribe {name}</span>
                 </Button>
             </div>
         </div>}
