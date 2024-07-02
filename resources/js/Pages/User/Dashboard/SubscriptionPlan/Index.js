@@ -7,7 +7,18 @@ export default function SubscriptionPlan({auth, subscriptionPlans}){
         // alert(id)
         Inertia.post(route('user.dashboard.subscriptionPlan.userSubscribe',{
             subscriptionPlan: id
-        }));
+        }),
+        {},
+        {
+            only: ['userSubscription'],
+            onSuccess: ({props})=>{
+                onSnapMidtrans(props.userSubscription);
+            }
+        });
+    }
+
+    const onSnapMidtrans = (userSubscription) => {
+        snap.pay(userSubscription.snap_token)
     }
     return (
         <Authenticated auth={auth}>
